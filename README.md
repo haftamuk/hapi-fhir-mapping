@@ -2,6 +2,40 @@
 
 To try this project out:
 
+* create a database with the following information
++---------------------------+
+| Tables_in_smart_care_demo |
++---------------------------+
+| CFDH_condition            |
+| CFDH_patient              |
++---------------------------+
+
+mysql> describe CFDH_patient;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| age   | int(11)      | NO   |     | NULL    |                |
+| sex   | varchar(255) | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+
+
+
+mysql> describe CFDH_condition;
++------------------+--------------+------+-----+-------------------+-----------------------------+
+| Field            | Type         | Null | Key | Default           | Extra                       |
++------------------+--------------+------+-----+-------------------+-----------------------------+
+| id               | bigint(20)   | NO   | PRI | NULL              | auto_increment              |
+| PatientID        | int(11)      | NO   | MUL | NULL              |                             |
+| VisitDate        | datetime     | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| PrimaryDiagnosis | varchar(255) | NO   |     | NULL              |                             |
+| VisitType        | varchar(255) | YES  |     | NULL              |                             |
++------------------+--------------+------+-----+-------------------+-----------------------------+
+
+
+
+
+
 * Run the following command to compile the project and start a local testing server that runs it:
 
 ```
